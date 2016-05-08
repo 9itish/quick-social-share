@@ -1,0 +1,160 @@
+@mixin advanced-stripes($color-one, $color-two, $strip-count, $angle) {
+  $gradient: '';
+  @for $i from 1 to $strip-count {
+      $strip: ', ' + $color-two + ' ' + 100%*$i/$strip-count + ', transparent '+ 100%*$i/$strip-count;
+    @if $i % 2 == 0 {
+      $strip: ', transparent ' + 100%*$i/$strip-count + ', ' + $color-two + ' ' + 100%*$i/$strip-count;
+    }
+    $gradient: $gradient + $strip;
+  }
+  
+  @if $strip-count % 2 == 0 {
+    background: linear-gradient($angle #{$gradient}, transparent), $color-one;
+  }
+  
+  @if $strip-count % 2 != 0 {
+    background: linear-gradient($angle #{$gradient}, $color-two 100%*($strip-count - 1)/$strip-count), $color-one;
+  }
+  
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+}
+
+@mixin cloth($color, $width, $size) {
+  $first-color: transparentize($color,0.7);
+  background: linear-gradient(0deg, transparent 40%*$width, $first-color 40%*$width, $first-color 50%*$width, transparent 50%*$width, transparent 60%*$width, $first-color 60%*$width),
+    linear-gradient(90deg, transparent 10%*$width, $first-color 10%*$width, $first-color 30%*$width, transparent 30%*$width, transparent 65%*$width, $first-color 65%*$width), white;
+  background-size: $size $size;
+}
+
+@mixin double-circle($fore-color, $back-color, $size) {
+  background: radial-gradient($fore-color 5%, transparent 6%, transparent 20%, $back-color 21%, $back-color 30%, transparent 31%, transparent 40%, $fore-color 41%, $fore-color 50%, transparent 51%), radial-gradient($fore-color 5%, transparent 6%, transparent 20%, $back-color 21%, $back-color 30%, transparent 31%), white;
+  background-size: $size $size, $size $size;
+  background-position: 0px 0px, $size/2 $size/2;
+}
+
+@mixin encircled($fore-color, $back-color, $d-size, $b-size) {
+  background: radial-gradient($fore-color $d-size*2/3, transparent $d-size*2/3 + 1px), radial-gradient($back-color 4px, transparent 5px), radial-gradient($back-color 4px, transparent 5px), radial-gradient($back-color 4px, transparent 5px), radial-gradient($back-color 4px, transparent 5px), radial-gradient($back-color 4px, transparent 5px), radial-gradient($back-color 4px, transparent 5px), radial-gradient($back-color 4px, transparent 5px), radial-gradient($back-color 4px, transparent 5px), white;
+  background-size: $b-size $b-size;
+  background-position: 0 0, 0px $d-size, $d-size 0px, 0 -1*$d-size, -1*$d-size 0px, -1*$d-size*2/3 -1*$d-size*2/3, -1*$d-size*2/3 1*$d-size*2/3, 1*$d-size*2/3 1*$d-size*2/3, 1*$d-size*2/3 -1*$d-size*2/3;
+}
+
+@mixin wallpaper($color, $position, $size) {
+  $first-color: transparentize($color,0.75);
+  background: radial-gradient(transparent 40%, $first-color 40%, $first-color 50%, transparent 50%, transparent 80%, $first-color 80%),
+    radial-gradient(transparent 10%, $first-color 10%, $first-color 40%, transparent 40%, transparent 60%, $first-color 60%, $first-color 80%), white;
+  background-size: $size $size;
+  background-position: 0 0px, $size*$position 0px;
+}
+
+@mixin basic-stripes($color, $color-two, $size, $angle) {
+  
+  @if $angle != 90deg and $angle != 135deg and $angle != 45deg {
+    $angle: 0;
+  }
+  
+  background: linear-gradient($angle, $color 25%, $color-two 26%, $color-two 50%, $color 51%, $color 75%, $color-two 76%);
+  background-size: $size $size;
+}
+
+@mixin criss-cross($color, $strip-width, $rotation, $size) {
+  
+  $gradient: $rotation;
+  $number-strip: $strip-width/1%;
+  $number-size: 20px * $size/1px;
+  
+  @if $number-size*$number-strip < 100 {
+    $number-strip: 100/$number-size;
+    $strip-width: $number-strip*1%;
+  }
+  
+  @if $number-size*(100-$number-strip) < 100 {
+    $number-strip: 100 - (100/$number-size);
+    $strip-width: $number-strip*1%;
+  }
+  
+  $first-color: transparentize($color,0.5);
+  $second-color: transparent;
+  background: linear-gradient($rotation, $first-color $strip-width, $second-color $strip-width + 1%),
+linear-gradient($rotation + 90deg, $first-color $strip-width, $second-color $strip-width + 1%), white;
+  background-size: $size $size;
+}
+
+@mixin polka-dots($fore-color, $back-color, $dot-size, $gradient-size){
+  $first-color: $fore-color;
+  $second-color: $back-color;
+  $first-stop: $dot-size;
+background: radial-gradient($first-color $first-stop - 1%, transparent $first-stop + 1%),
+radial-gradient($first-color 15%, transparent 16%), $second-color;
+background-size: 2*$gradient-size 2*$gradient-size;
+background-position: 0 0, $gradient-size $gradient-size;
+}
+
+@mixin checker-board($fore-color, $back-color, $diagonal, $size){
+  $first-angle: 45deg;
+  $second-angle: 45deg;
+  @if $diagonal {
+    $second-angle: -45deg;
+  }
+  @if $size > 25px {
+    background: linear-gradient($first-angle, $back-color 25%, transparent 25%, transparent 75%, $back-color 75%, $back-color), 
+linear-gradient($second-angle, $back-color 25%, transparent 25%, transparent 75%, $back-color 75%, $back-color), $fore-color;
+  }
+  @else {
+    background: linear-gradient($first-angle, $back-color 24%, transparent 25%, transparent 74%, $back-color 75%, $back-color), 
+linear-gradient($second-angle, $back-color 24%, transparent 25%, transparent 74%, $back-color 75%, $back-color), $fore-color;
+  }
+  @if not($diagonal) {
+    background-position:0 0, $size/2 $size/2;
+  }
+  background-size: $size $size;
+}
+
+@mixin brick-pattern($fore-color, $back-color, $glaze, $scale){
+  $secondary-color: $back-color;
+  
+  @if $glaze {
+    @if lightness($back-color) > 70 {
+      $secondary-color: scale-color($back-color, $lightness: -5%);      
+    }
+    @else {
+      $secondary-color: scale-color($back-color, $lightness: 25%);
+    }
+  }
+  
+  @if $scale < 0.25 {
+    $scale: 0.25;
+  } 
+  @if $scale > 5 {
+    $scale: 5;
+  }
+background: linear-gradient(335deg, $back-color 23px*$scale, transparent 23px*$scale),
+linear-gradient(155deg, $secondary-color 23px*$scale, transparent 23px*$scale),
+linear-gradient(335deg, $back-color 23px*$scale, transparent 23px*$scale),
+linear-gradient(155deg, $secondary-color 23px*$scale, transparent 23px*$scale), $fore-color;
+background-size: 58px*$scale 58px*$scale;	
+background-position: 0px 2px*$scale, 4px*$scale 35px*$scale, 29px*$scale 31px*$scale, 34px*$scale 6px*$scale;
+}
+
+@mixin fuzzy-lines($fore-color, $back-color, $size) {
+  background: linear-gradient(90deg, transparentize($back-color,0.93) 70%, transparent 70%),
+linear-gradient(90deg, transparentize($back-color,0.87) 40%, transparent 40%),
+linear-gradient(90deg, transparent 80%, transparentize($back-color,0.83) 80%), $fore-color;
+  background-size: $size, $size*2.9, $size*3.7;
+}
+
+@mixin steps-pattern($fore-color, $back-color, $scale) {
+background: 
+linear-gradient(335deg, $back-color 23px*$scale, transparent 23px*$scale),
+linear-gradient(155deg, $back-color 23px*$scale, transparent 23px*$scale),
+linear-gradient(335deg, $back-color 23px*$scale, transparent 23px*$scale),
+linear-gradient(155deg, $back-color 23px*$scale, transparent 23px*$scale),
+linear-gradient(335deg, $back-color 10px*$scale, transparent 10px*$scale),
+linear-gradient(155deg, $back-color 10px*$scale, transparent 10px*$scale),
+linear-gradient(335deg, $back-color 10px*$scale, transparent 10px*$scale),
+linear-gradient(155deg, $back-color 10px*$scale, transparent 10px*$scale), $fore-color;  
+background-size: 58px*$scale 58px*$scale;
+background-position: 0px 2px*$scale, 4px*$scale 35px*$scale, 29px*$scale 31px*$scale, 33px*$scale 6px*$scale,
+0px 36px*$scale, 4px*$scale 2px*$scale, 29px*$scale 6px*$scale, 33px*$scale 30px*$scale;
+
+}
