@@ -13,7 +13,7 @@ I agree there are a lot of alternatives available. However, the following points
 
 To get started, all you need to do is include necessary CSS and JavaScript files and add this markup to your webpage:
 
-<pre>&lt;div id="quick-share"&gt;&lt;/div&gt;</pre>
+<pre><div id="quick-share"></div></pre>
 
 Now, put the following JavaScript on your webpage.
 
