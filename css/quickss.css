@@ -1,0 +1,262 @@
+[class^="socicon"] {
+  text-decoration: none;
+  padding: 10px 10px 5px 10px;
+  background: black;
+  margin: 10px 3px;
+  display: inline-block;
+  color: white;
+  float: left;
+  min-width: 60px;
+  text-align: center;
+  -webkit-transition: 0.25s ease all;
+  transition: 0.25s ease all;
+}
+
+#quick-share {
+  overflow: hidden;
+}
+
+#quick-share * {
+  box-sizing: border-box;
+}
+
+.round {
+  border-radius: 6px;
+}
+
+.round.socicon-facebook:hover, .socicon-facebook:hover {
+  background: #3C599F;
+}
+
+.round.socicon-twitter:hover, .socicon-twitter:hover {
+  background: #32CCFE;
+}
+
+.round.socicon-googleplus:hover, .socicon-googleplus:hover {
+  background: #CF3D2E;
+}
+
+.round.socicon-linkedin:hover, .socicon-linkedin:hover {
+  background: #0085AE;
+}
+
+.round.socicon-reddit:hover, .socicon-reddit:hover {
+  background: #e74a1e;
+}
+
+.round.socicon-pinterest:hover, .socicon-pinterest:hover {
+  background: #c92619;
+}
+
+.dark.socicon-facebook, .light.socicon-facebook {
+  background: #3C599F;
+}
+
+.dark.socicon-twitter, .light.socicon-twitter {
+  background: #32CCFE;
+}
+
+.dark.socicon-googleplus, .light.socicon-googleplus {
+  background: #CF3D2E;
+}
+
+.dark.socicon-linkedin, .light.socicon-linkedin {
+  background: #0085AE;
+}
+
+.dark.socicon-reddit, .light.socicon-reddit {
+  background: #e74a1e;
+}
+
+.dark.socicon-pinterest, .light.socicon-pinterest {
+  background: #c92619;
+}
+
+.dark.socicon-facebook:hover {
+  background: #30477f;
+}
+
+.dark.socicon-twitter:hover {
+  background: #01b7f2;
+}
+
+.dark.socicon-googleplus:hover {
+  background: #a63125;
+}
+
+.dark.socicon-linkedin:hover {
+  background: #006a8b;
+}
+
+.dark.socicon-reddit:hover {
+  background: #bd3914;
+}
+
+.dark.socicon-pinterest:hover {
+  background: #a11e14;
+}
+
+.light.socicon-facebook:hover {
+  background: #5675bf;
+}
+
+.light.socicon-twitter:hover {
+  background: #5bd6fe;
+}
+
+.light.socicon-googleplus:hover {
+  background: #da6357;
+}
+
+.light.socicon-linkedin:hover {
+  background: #00b8f1;
+}
+
+.light.socicon-reddit:hover {
+  background: #ec6e4b;
+}
+
+.light.socicon-pinterest:hover {
+  background: #e64235;
+}
+
+.taller:hover {
+  -webkit-transform: scaleY(1.1);
+          transform: scaleY(1.1);
+}
+
+.wider:hover {
+  -webkit-transform: scaleX(1.1);
+          transform: scaleX(1.1);
+}
+
+.rise {
+  display: inline-block;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+
+.rise:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.wobble-vertical {
+  display: inline-block;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+
+.wobble-vertical:hover {
+  -webkit-animation-name: wobble-vertical;
+          animation-name: wobble-vertical;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes wobble-vertical {
+  16.65% {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes wobble-vertical {
+  16.65% {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+            transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+.pop {
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+
+.pop:hover {
+  -webkit-animation-name: pop;
+          animation-name: pop;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes pop {
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
